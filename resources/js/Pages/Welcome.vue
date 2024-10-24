@@ -19,6 +19,7 @@ import {
 defineProps<{
     canAccessAdmin: string;
     year: string;
+    menuPath: string;
 }>();
 </script>
 <template>
@@ -146,24 +147,26 @@ defineProps<{
         </div>
 
         <div class="flex justify-center items-center md:col-span-2 my-10">
-            <Button class="flex gap-2">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-6"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
-                    />
-                </svg>
+            <a :href="menuPath">
+                <Button class="flex gap-2">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="size-6"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
+                        />
+                    </svg>
 
-                <p>Mehr gerichte in der Online Speisekarte</p>
-            </Button>
+                    <p>Mehr gerichte in der Online Speisekarte</p>
+                </Button>
+            </a>
         </div>
 
         <span class="line my-5 col-span-1 md:col-span-2"></span>

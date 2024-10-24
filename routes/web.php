@@ -1,13 +1,18 @@
 <?php
 
+use App\Models\Menu;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Illuminate\Support\Carbon;
 
 Route::get('/', function () {
-    $year =  Carbon::today()->year;
+    $year = Carbon::today()->year;
+    $menu = Menu::latest()->first();
+    $path = asset($menu->path);
+
     return Inertia::render('Welcome', [
-        "year" => $year
+        'year' => $year,
+        'menuPath' => $path,
     ]);
 });
 
