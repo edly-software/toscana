@@ -1,8 +1,14 @@
 <?php
 
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+use Illuminate\Support\Carbon;
 
 Route::get('/', function () {
-    return view('welcome')->with('products', Product::all());
+    $year =  Carbon::today()->year;
+    return Inertia::render('Welcome', [
+        "year" => $year
+    ]);
 });
+
+//require __DIR__.'/auth.php';
