@@ -39,7 +39,9 @@ defineProps<{
                 class="object-fill md:object-scale-down md:rounded-lg"
             />
         </div>
-
+        <div class="flex gap-2 py-5 justify-center items-center md:hidden">
+            <img src="toscana/logo.png" alt="logo" class="w-24 h-16" />
+        </div>
         <div
             class="absolute top-5 right-5 left-5 bottom-5 flex flex-col justify-center text-white px-10 md:relative max-h-screen"
         >
@@ -101,7 +103,7 @@ defineProps<{
         <h1
             class="flex gap-2.5 justify-center items-center my-10 mx-5 text-3xl md:col-span-2 font-bold"
         >
-            <span> Speisekarte </span>
+            <span id="menu"> Speisekarte </span>
 
             <div>
                 <TooltipProvider>
@@ -175,7 +177,9 @@ defineProps<{
             class="px-5 md:px-24 grid grid-cols-1 md:grid-cols-2 md:col-span-2 mt-5 gap-5"
         >
             <div class="flex flex-col gap-5">
-                <p class="text-center text-2xl font-bold">Über Uns</p>
+                <p id="about" class="text-center text-2xl font-bold">
+                    Über Uns
+                </p>
                 <div class="flex justify-center items-center">
                     <p
                         class="block text-wrap w-96 md:w-full text:sm md:text-xl p-6 rounded-lg text-justify leading-relaxed whitespace-pre-wrap"
@@ -228,7 +232,9 @@ defineProps<{
         <div
             class="px-5 flex flex-col justify-center items-center gap-5 text-center"
         >
-            <p class="text-center text-2xl font-bold">Wo Sie uns Finden</p>
+            <p id="location" class="text-center text-2xl font-bold">
+                Wo Sie uns Finden
+            </p>
             <p
                 class="block text-wrap w-96 md:w-full text:sm md:text-xl p-6 rounded-lg text-justify leading-relaxed whitespace-pre-wrap"
             >
