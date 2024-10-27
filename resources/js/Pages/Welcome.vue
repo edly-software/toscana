@@ -20,6 +20,8 @@ defineProps<{
     canAccessAdmin: string;
     year: string;
     menuPath: string;
+    pasta: any;
+    pizza: any;
 }>();
 </script>
 <template>
@@ -142,10 +144,10 @@ defineProps<{
             <NormalDrinks />
         </div>
         <div class="md:border border-slate-900 rounded-lg md:ms-10 md:p-5">
-            <Pasta />
+            <Pasta :pasta="pasta" />
         </div>
         <div class="md:border border-slate-900 rounded-lg md:me-10 md:p-5">
-            <Pizza />
+            <Pizza :pizzas="pizza" />
         </div>
 
         <div class="flex justify-center items-center md:col-span-2 my-10">

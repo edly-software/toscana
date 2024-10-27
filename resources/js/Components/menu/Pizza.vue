@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-let pinsas = [
+const props = defineProps<{
+    pizzas: any;
+}>();
+
+let pizzas = [
     {
         name: "Kaffee",
         price: "3,00 €",
@@ -55,11 +59,21 @@ let pinsas = [
 
         <span> Pinsa </span>
     </h1>
+
     <div
         class="px-10 md:px-24 flex justify-between p-2.5"
-        v-for="pinsa in pinsas"
+        v-if="!props.pizzas"
+        v-for="pizza in pizzas"
     >
-        <p>{{ pinsa.name }}</p>
-        <p>{{ pinsa.price }}</p>
+        <p>{{ pizza.name }}</p>
+        <p>{{ pizza.price }}</p>
+    </div>
+    <div
+        class="px-10 md:px-24 flex justify-between p-2.5"
+        v-if="props.pizzas"
+        v-for="pizza in props.pizzas"
+    >
+        <p>{{ pizza.name }}</p>
+        <p>{{ pizza.formatted_price }}</p>
     </div>
 </template>

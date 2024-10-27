@@ -1,8 +1,11 @@
 <script lang="ts" setup>
+const props = defineProps<{
+    pasta: any;
+}>();
 let pastas = [
     {
-        name: "Kaffee",
-        price: "3,00 €",
+        name: "Spaghetti Napoli",
+        price: "9,00 €",
     },
     {
         name: "Espresso",
@@ -55,9 +58,18 @@ let pastas = [
     </h1>
     <div
         class="px-10 md:px-24 flex justify-between p-2.5"
+        v-if="!props.pasta"
         v-for="pasta in pastas"
     >
         <p>{{ pasta.name }}</p>
         <p>{{ pasta.price }}</p>
+    </div>
+    <div
+        class="px-10 md:px-24 flex justify-between p-2.5"
+        v-if="props.pasta"
+        v-for="pasta in props.pasta"
+    >
+        <p>{{ pasta.name }}</p>
+        <p>{{ pasta.formatted_price }}</p>
     </div>
 </template>
