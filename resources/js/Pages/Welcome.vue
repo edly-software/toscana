@@ -3,11 +3,7 @@ import Navigation from "@/Components/Navigation.vue";
 import Button from "@/Components/ui/button/Button.vue";
 import { Head, Link } from "@inertiajs/vue3";
 import { GlobeIcon } from "@radix-icons/vue";
-import HotDrinks from "@/Components/menu/HotDrinks.vue";
-import NormalDrinks from "@/Components/menu/NormalDrinks.vue";
 import AboutUsCarousel from "@/Components/AboutUsCarousel.vue";
-import Pasta from "@/Components/menu/Pasta.vue";
-import Pizza from "@/Components/menu/Pizza.vue";
 
 import {
     Tooltip,
@@ -28,7 +24,7 @@ defineProps<{
     <Head title="Welcome" />
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div class="hidden md:inline md:col-span-2 mb-10">
-            <Navigation />
+            <Navigation :menuPath="menuPath"/>
         </div>
 
         <div class="relative flex justify-center max-h-screen">
@@ -43,18 +39,14 @@ defineProps<{
             <div class="text-white md:text-slate-900 p-5 rounded-md md:h-1/2 flex flex-col justify-center items-center">
                 <p class="text-5xl md:text-7xl font-bold">Toscana Memmingen</p>
                 <p class="mt-5 text-xl hidden md:inline-block text-justify leading-relaxed whitespace-pre-wrap">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Officia voluptatum assumenda, quaerat, quibusdam vel saepe
-                    itaque reprehenderit animi laborum, dolor nobis! Ad
-                    architecto repudiandae sunt neque quaerat quibusdam
-                    blanditiis quia incidunt ullam eligendi iste a non iure
-                    totam, ipsam doloribus. Perferendis, tempora cum molestiae
-                    voluptatibus iusto minima corporis nulla pariatur.
+                    Italienisches Flair im Herzen von Memmingen – erleben Sie authentische Küche, frisch zubereitet mit
+                    Liebe und Leidenschaft. Unsere Terrasse grenzt direkt an die idyllische Memminger Ach und bietet Ihnen
+                    ein unvergleichliches Genusserlebnis in einzigartiger Atmosphäre.
                 </p>
                 <p class="mt-5 text-xl inline-block md:hidden">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Perferendis, tempora cum molestiae voluptatibus iusto minima
-                    corporis nulla pariatur.
+                    Italienisches Flair im Herzen von Memmingen – erleben Sie authentische Küche, frisch zubereitet mit
+                    Liebe und Leidenschaft. Unsere Terrasse grenzt direkt an die idyllische Memminger Ach und bietet Ihnen
+                    ein unvergleichliches Genusserlebnis in einzigartiger Atmosphäre.
                 </p>
 
                 <div class="flex flex-col md:flex-row md:gap-5 text-sm">
@@ -62,59 +54,25 @@ defineProps<{
                         <GlobeIcon />
                         <p>Bewerten Sie Uns</p>
                     </Button>
-                    <Button variant="secondary" class="mt-5 md:mt-10 flex justify-center items-center gap-5">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-4">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                        </svg>
+                    <a :href="menuPath">
+                        <Button variant="secondary" class="mt-5 md:mt-10 flex justify-center items-center gap-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                            </svg>
 
-                        <p>Unsere Speisekarte</p>
-                    </Button>
+                            <p>Unsere Speisekarte</p>
+                        </Button>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <span class="line my-5 col-span-1 md:col-span-2"></span>
-
         <h1 class="flex gap-2.5 justify-center items-center my-10 mx-5 text-3xl md:col-span-2 font-bold">
             <span id="menu"> Speisekarte </span>
-
-            <div>
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger as-child>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="size-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                            </svg>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>
-                                Diese Speisekarte beinhaltet nicht all unserer
-                                Produkte! Für mehr Produkte besuchen Sie die
-                                Online Speisekarte
-                            </p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            </div>
         </h1>
-        <div class="md:border border-slate-900 rounded-lg md:ms-10 md:p-5">
-            <HotDrinks />
-        </div>
-        <div class="md:border border-slate-900 rounded-lg md:me-10 md:p-5">
-            <NormalDrinks />
-        </div>
-        <div class="md:border border-slate-900 rounded-lg md:ms-10 md:p-5">
-            <Pasta :pasta="pasta" />
-        </div>
-        <div class="md:border border-slate-900 rounded-lg md:me-10 md:p-5">
-            <Pizza :pizzas="pizza" />
-        </div>
-
-        <div class="flex justify-center items-center md:col-span-2 my-10">
+        <div class="flex justify-center items-center md:col-span-2">
             <a :href="menuPath">
                 <Button class="flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -123,7 +81,7 @@ defineProps<{
                             d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
                     </svg>
 
-                    <p>Mehr gerichte in der Online Speisekarte</p>
+                    <p>Unsere Online Speisekarte</p>
                 </Button>
             </a>
         </div>
@@ -138,28 +96,37 @@ defineProps<{
                 <div class="flex justify-center items-center">
                     <p
                         class="block text-wrap w-96 md:w-full text:sm md:text-xl p-6 rounded-lg text-justify leading-relaxed whitespace-pre-wrap">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Excepturi voluptatem ullam eum sed. Aperiam, quam ut
-                        esse perferendis non molestiae labore debitis inventore
-                        aut iure unde, voluptatibus laudantium expedita sed
-                        distinctio. Nostrum quo veniam recusandae natus odio
-                        repudiandae, repellat, suscipit eaque similique earum
-                        pariatur iusto. Ut esse quaerat numquam aut illo
-                        repellat eos inventore. Velit eveniet in omnis facilis
-                        tempore iusto, aspernatur dolorem molestias incidunt
-                        doloribus neque, impedit quibusdam veniam ipsum unde
-                        voluptate numquam inventore necessitatibus ducimus ullam
-                        vitae! Voluptates assumenda reprehenderit voluptatum
-                        consequatur deserunt ex, aspernatur officia quidem a
-                        consectetur tenetur sapiente quia fugiat modi ratione
-                        suscipit culpa corrupti reiciendis omnis beatae ut. Ut
-                        culpa quo deleniti maxime dicta sunt illum accusantium,
-                        saepe numquam officia ab repellat id nihil quasi dolor,
-                        porro magnam earum? Adipisci earum dolores eveniet
-                        obcaecati voluptatibus vero autem sequi modi fugit
-                        praesentium facere laborum aliquid, odit possimus
-                        consectetur veniam expedita laboriosam id labore!
-                        Laboriosam, modi.
+                        Im Ristorante Toscana öffnet sich die Tür und sofort fühlt man sich, als wäre man in Italien. Ein
+                        Ort, an dem Menschen zusammenkommen – Familien, Freunde, Paare, Jung und Alt –, um das Leben und
+                        gutes Essen zu genießen. Die lebhafte Stimmung, das Lachen der Gäste und der köstliche Duft
+                        frisch
+                        zubereiteter Gerichte schaffen eine unverwechselbare italienische Lebensfreude. Hier darf man
+                        ganz
+                        man selbst sein, entspannt genießen und sich wie zu Hause fühlen.
+                        <br />
+                        <br />
+                        Denn frisch gekocht schmeckt es doch am allerbesten! Im Toscana erwartet Sie täglich eine
+                        Auswahl an
+                        frischen und saisonalen Speisen, die mit Leidenschaft und Sorgfalt zubereitet werden. Unsere
+                        Speisekarte ist ein liebevoll zusammengestelltes Meisterwerk, das Gaumen und Auge gleichermaßen
+                        erfreut. Von herzhaften Klassikern bis zu überraschenden Kreationen – jedes Gericht spiegelt die
+                        Hingabe unserer Küche wider.
+
+                        <br />
+                        <br />
+                        Eine ganz besondere Spezialität des Hauses ist die Pinsa, der geschmackvolle Vorläufer der
+                        Pizza.
+                        Auf den ersten Blick ähnelt sie einer Pizza, doch der Unterschied liegt im Detail: Der spezielle
+                        Brotteig ist eine harmonische Mischung aus Knusprigkeit und fluffiger Leichtigkeit. Belegt mit
+                        frischen Zutaten Ihrer Wahl, wird die Pinsa zu einem einzigartigen Genusserlebnis, das Sie so
+                        schnell nicht vergessen werden.
+                        <br />
+                        <br />
+                        Tauchen Sie ein in das authentische Ambiente des Ristorante Toscana und lassen Sie sich von
+                        unserer
+                        Leidenschaft für die italienische Küche verzaubern. Hier wird jede Mahlzeit zu einem Fest für
+                        die
+                        Sinne – wir freuen uns auf Ihren Besuch!
                     </p>
                 </div>
             </div>
@@ -183,11 +150,10 @@ defineProps<{
             </p>
             <p
                 class="block text-wrap w-96 md:w-full text:sm md:text-xl p-6 rounded-lg text-justify leading-relaxed whitespace-pre-wrap">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut eos
-                fugiat, nostrum corporis aspernatur quibusdam sint rem suscipit
-                voluptates impedit libero omnis optio itaque perspiciatis
-                excepturi? Hic recusandae aut error praesentium eligendi
-                deserunt repudiandae excepturi ut nam, quaerat officia eaque?
+                Besuchen Sie uns im Herzen von Memmingen! Sie finden das Ristorante Toscana in der Hirschgasse 7, 87700
+                Memmingen – direkt am idyllischen Schrannenplatz und der malerischen Memminger Ach. Unsere Lage verbindet
+                italienisches Flair mit dem Charme der Altstadt und lädt zum Genießen und Verweilen ein. Wir freuen uns auf
+                Sie!
             </p>
         </div>
     </div>
@@ -199,10 +165,10 @@ defineProps<{
             </span>
             <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
                 <li>
-                    <Link href="#" class="hover:underline me-4 md:me-6">Datenschutz</Link>
+                    <Link href="datenschutz" class="hover:underline me-4 md:me-6">Datenschutz</Link>
                 </li>
                 <li>
-                    <Link href="#" class="hover:underline me-4 md:me-6">Impressum</Link>
+                    <Link href="impressum" class="hover:underline me-4 md:me-6">Impressum</Link>
                 </li>
                 <li>
                     <Link href="#" class="hover:underline">Kontakt aufnehmen</Link>
@@ -225,5 +191,8 @@ defineProps<{
     background: url("/toscana/dotted.png") repeat-x;
     background-clip: border-box;
     background-clip: content-box;
+}
+html{
+    scroll-behavior: smooth;
 }
 </style>
