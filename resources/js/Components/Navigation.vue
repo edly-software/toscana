@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { Link } from "@inertiajs/vue3";
+
+defineProps<{
+    menuPath: string;
+}>();
+
 </script>
 
 <template>
@@ -10,10 +15,10 @@ import { Link } from "@inertiajs/vue3";
         </div>
 
         <div class="flex gap-5 justify-center items-center me-5 text-sm">
-            <Link href="#menu"
+            <a :href="menuPath"
                 class="hover:underline transition-all delay-150 ease-in-out hover:-translate-y-1 hover:duration-150">
             Speisekarte
-            </Link>
+            </a>
 
             <Link href="#about"
                 class="hover:underline transition-all delay-150 ease-in-out hover:-translate-y-1 hover:duration-150">

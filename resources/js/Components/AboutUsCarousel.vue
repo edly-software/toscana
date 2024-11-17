@@ -15,11 +15,18 @@ let images = [
     { src: "/toscana/fourth.jpg", alt: "Last" },
 ];
 
+const dontLoad = [
+    5, 7, 8, 10, 12, 13, 16, 17, 19, 23, 25, 26, 27, 28, 29, 33,
+    34, 42, 43, 44, 45, 46, 47, 48, 49, 50
+];
 for (let i = 1; i <= 50; i++) {
-    images.push({
-        src: `/toscana/${i}.jpg`,
-        alt: `${i}`,
-    });
+    const shouldNotInclude = dontLoad.includes(i);
+    if (!shouldNotInclude) {
+        images.push({
+            src: `/toscana/${i}.jpg`,
+            alt: `${i}`,
+        });
+    }
 }
 </script>
 
@@ -29,14 +36,8 @@ for (let i = 1; i <= 50; i++) {
             <CarouselItem v-for="image in images" :key="image.src">
                 <div class="p-0.5">
                     <Card>
-                        <CardContent
-                            class="flex aspect-square items-center justify-center p-6"
-                        >
-                            <img
-                                :src="image.src"
-                                :alt="image.alt"
-                                class="content-fill"
-                            />
+                        <CardContent class="flex aspect-square items-center justify-center p-6">
+                            <img :src="image.src" :alt="image.alt" class="content-fill" />
                         </CardContent>
                     </Card>
                 </div>

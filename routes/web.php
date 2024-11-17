@@ -23,4 +23,12 @@ Route::get("/", function () {
     ]);
 });
 
+Route::get('/datenschutz', function () {
+    return Inertia::render('Datenschutz');
+});
+
+Route::get('/impressum', function () {
+    return Inertia::render('Impressum');
+});
+
 //require __DIR__.'/auth.php';
