@@ -24,11 +24,15 @@ Route::get("/", function () {
 });
 
 Route::get('/datenschutz', function () {
-    return Inertia::render('Datenschutz');
+    $content = file_get_contents("../resources/views/content/datenschutz.md");
+
+    return view('datenschutz')->with(['content'=>$content]);
 });
 
 Route::get('/impressum', function () {
-    return Inertia::render('Impressum');
+    $content = file_get_contents("../resources/views/content/impressum.md");
+
+    return view('impressum')->with(['content'=>$content]);
 });
 
 //require __DIR__.'/auth.php';

@@ -165,10 +165,10 @@ defineProps<{
             </span>
             <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
                 <li>
-                    <Link href="datenschutz" class="hover:underline me-4 md:me-6">Datenschutz</Link>
+                    <a href="datenschutz" class="hover:underline me-4 md:me-6">Datenschutz</a>
                 </li>
                 <li>
-                    <Link href="impressum" class="hover:underline me-4 md:me-6">Impressum</Link>
+                    <a href="impressum" class="hover:underline me-4 md:me-6">Impressum</a>
                 </li>
                 <li>
                     <Link href="#" class="hover:underline">Kontakt aufnehmen</Link>
