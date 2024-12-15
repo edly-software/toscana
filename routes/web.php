@@ -10,7 +10,7 @@ use Inertia\Inertia;
 Route::get("/", function () {
     $year = Carbon::today()->year;
     $menu = Menu::latest()->first();
-    $path = asset($menu->path);
+    $path = asset('storage/'.$menu->path);
 
     $pasta = Pasta::all();
     $pizza = Pizza::all();
