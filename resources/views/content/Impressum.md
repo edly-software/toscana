@@ -1,26 +1,24 @@
-
 # Impressum
 
 ## Angaben gemäß § 5 TMG
 
-**[Name des Restaurantbetreibers / Unternehmens]**  
-[Adresse des Restaurants / Unternehmens]  
-[PLZ, Ort]  
-[Telefonnummer]  
-[E-Mail-Adresse]  
+**Aflah Zaag**  
+Hirschgasse 7  
+87700 Memmingen  
+Telefon: 08331 9744234  
+E-Mail: [ristorante.toscana.memmingen@gmail.com](mailto:ristorante.toscana.memmingen@gmail.com)
 
 ## Vertreten durch:
-[Name des Geschäftsführers / Inhabers]
 
-## Umsatzsteuer-ID:
-Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: [Nummer einfügen]
+**Aflah Zaag**
+
+## Umsatzsteuer-ID
+
+Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:  
+**[Nummer einfügen]**
 
 ## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
-[Name des Verantwortlichen]  
-[Adresse des Verantwortlichen]  
-[PLZ, Ort]
 
-## EU-Streitschlichtung
-Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:  
-[https://ec.europa.eu/consumers/odr/](https://ec.europa.eu/consumers/odr/)  
-Unsere E-Mail-Adresse finden Sie oben im Impressum.
+**Aflah Zaag**  
+Hirschgasse 7  
+87700 Memmingen
