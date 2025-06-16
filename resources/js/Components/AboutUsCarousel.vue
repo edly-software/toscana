@@ -9,7 +9,6 @@ import {
 } from "@/Components/ui/carousel";
 
 let images = [
-    { src: "/toscana/second.jpg", alt: "Second" },
     { src: "/toscana/first.jpg", alt: "First Pic " },
     { src: "/toscana/third.jpg", alt: "Third" },
     { src: "/toscana/fourth.jpg", alt: "Last" },
