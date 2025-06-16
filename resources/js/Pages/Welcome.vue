@@ -192,7 +192,7 @@ defineProps<{
                             </p>
                             <div class="bg-white p-3 rounded-md border border-orange-100">
                                 <p class="text-xs text-gray-500 mb-1">Kontakt für Reservierungen:</p>
-                                <p class="font-semibold text-gray-800">📞 +49 (0) 8331 123456</p>
+                                <p class="font-semibold text-gray-800">📞 +49 (0) 08331 9744234</p>
                             </div>
                         </div>
                     </div>
