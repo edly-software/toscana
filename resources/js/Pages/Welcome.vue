@@ -137,6 +137,71 @@ defineProps<{
 
         <span class="line my-5 col-span-1 md:col-span-2"></span>
 
+        <!-- Opening Hours Section -->
+        <div class="px-5 md:px-24 grid grid-cols-1 md:grid-cols-2 md:col-span-2 mt-5 gap-5">
+            <div class="flex flex-col gap-5">
+                <p id="opening-hours" class="text-center text-2xl font-bold">
+                    Öffnungszeiten
+                </p>
+                <div class="flex justify-center items-center">
+                    <div class="block text-wrap w-96 md:w-full text-sm md:text-xl p-6 rounded-lg bg-gray-50 border border-gray-200">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-gray-700">Montag</span>
+                                <span class="text-gray-600">17:30–23:00</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-gray-700">Dienstag</span>
+                                <span class="text-gray-600">11:30–14:00, 17:30–23:00</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-gray-700">Mittwoch</span>
+                                <span class="text-gray-600">11:30–14:00, 17:30–23:00</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-gray-700">Donnerstag</span>
+                                <span class="text-gray-600">11:30–14:00, 17:30–23:00</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-gray-700">Freitag</span>
+                                <span class="text-gray-600">17:30–23:00</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-gray-700">Samstag</span>
+                                <span class="text-gray-600">11:30–14:00, 17:30–23:00</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-gray-700">Sonntag</span>
+                                <span class="text-gray-600">11:30–14:00, 17:30–23:00</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center items-center">
+                <div class="w-full max-w-md">
+                    <div class="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-lg border border-orange-200 shadow-sm">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">🍝</div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Buon Appetito!</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Genießen Sie authentische italienische Küche in gemütlicher Atmosphäre. 
+                                Unsere Küche ist täglich für Sie geöffnet.
+                            </p>
+                            <div class="bg-white p-3 rounded-md border border-orange-100">
+                                <p class="text-xs text-gray-500 mb-1">Kontakt für Reservierungen:</p>
+                                <p class="font-semibold text-gray-800">📞 +49 (0) 8331 123456</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span class="line my-5 col-span-1 md:col-span-2"></span>
+
         <div class="px-10 flex flex-col justify-center items-center">
             <iframe
                 src="https://www.openstreetmap.org/export/embed.html?bbox=10.181861221790315%2C47.981805387916175%2C10.185557305812837%2C47.98331887193618&amp;layer=mapnik"
