@@ -15,7 +15,7 @@ defineProps<{
 
         <div class="flex gap-5 justify-center items-center me-5 text-sm">
             <a
-                :href="menuPath"
+                href="menu.pdf"
                 class="hover:underline transition-all delay-150 ease-in-out hover:-translate-y-1 hover:duration-150"
             >
                 Speisekarte
