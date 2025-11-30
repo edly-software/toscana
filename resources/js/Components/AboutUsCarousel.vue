@@ -9,9 +9,9 @@ import {
 } from "@/Components/ui/carousel";
 
 let images = [
-    { src: "/toscana/first.jpg", alt: "First Pic " },
-    { src: "/toscana/third.jpg", alt: "Third" },
-    { src: "/toscana/fourth.jpg", alt: "Last" },
+    { src: "/toscana/first.jpg", alt: "Restaurant Interior" },
+    { src: "/toscana/third.jpg", alt: "Dining Experience" },
+    { src: "/toscana/fourth.jpg", alt: "Culinary Delights" },
 ];
 
 const dontLoad = [
@@ -23,27 +23,39 @@ for (let i = 1; i <= 50; i++) {
     if (!shouldNotInclude) {
         images.push({
             src: `/toscana/${i}.jpg`,
-            alt: `${i}`,
+            alt: `Gallery Image ${i}`,
         });
     }
 }
 </script>
 
 <template>
-    <Carousel class="relative w-full max-w-md">
+    <Carousel class="relative w-full max-w-4xl group">
         <CarouselContent>
             <CarouselItem v-for="image in images" :key="image.src">
-                <div class="p-0.5">
-                    <Card>
-                        <CardContent class="flex aspect-square items-center justify-center p-6">
-                            <img :src="image.src" :alt="image.alt" class="content-fill" />
+                <div class="p-1">
+                    <Card class="border-0 bg-transparent shadow-none overflow-hidden rounded-lg">
+                        <CardContent class="flex aspect-[4/3] min-h-[450px] lg:min-h-[600px] items-center justify-center p-0 relative">
+                            <!-- Image -->
+                            <img 
+                                :src="image.src" 
+                                :alt="image.alt" 
+                                class="w-full h-full object-cover rounded-lg transition-transform duration-700 group-hover:scale-[1.02]" 
+                            />
+                            <!-- Subtle overlay gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-lg pointer-events-none"></div>
                         </CardContent>
                     </Card>
                 </div>
             </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        
+        <!-- Elegant navigation arrows -->
+        <CarouselPrevious 
+            class="left-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 opacity-0 group-hover:opacity-100"
+        />
+        <CarouselNext 
+            class="right-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 opacity-0 group-hover:opacity-100"
+        />
     </Carousel>
 </template>
->
