@@ -24,15 +24,19 @@ Route::get("/", function () {
 });
 
 Route::get('/datenschutz', function () {
-    $content = file_get_contents("../resources/views/content/datenschutz.md");
+    $year = Carbon::today()->year;
 
-    return view('datenschutz')->with(['content'=>$content]);
+    return Inertia::render("Datenschutz", [
+        "year" => $year,
+    ]);
 });
 
 Route::get('/impressum', function () {
-    $content = file_get_contents("../resources/views/content/impressum.md");
+    $year = Carbon::today()->year;
 
-    return view('impressum')->with(['content'=>$content]);
+    return Inertia::render("Impressum", [
+        "year" => $year,
+    ]);
 });
 
 //require __DIR__.'/auth.php';

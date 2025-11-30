@@ -1,5 +1,320 @@
-<script setup>
+<script setup lang="ts">
+import { Head, Link } from "@inertiajs/vue3";
+
+defineProps<{
+    year: number;
+}>();
 </script>
+
 <template>
-    datenschutz
+    <Head title="Datenschutz" />
+    
+    <!-- Header -->
+    <div class="hidden md:flex justify-between mb-10">
+        <Link href="/" class="flex gap-2 py-5 justify-center items-center hover:opacity-80 transition-opacity">
+            <img src="/toscana/logo.png" alt="logo" class="w-24 h-16" />
+            <p class="text-xl text-center justify-center">Toscana Memmingen</p>
+        </Link>
+
+        <div class="flex gap-5 justify-center items-center me-5 text-sm">
+            <Link
+                href="/"
+                class="hover:underline transition-all delay-150 ease-in-out hover:-translate-y-1 hover:duration-150"
+            >
+                Startseite
+            </Link>
+            <Link
+                href="/impressum"
+                class="hover:underline transition-all delay-150 ease-in-out hover:-translate-y-1 hover:duration-150"
+            >
+                Impressum
+            </Link>
+            <p class="flex gap-1">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-5"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                    />
+                </svg>
+                08331 9744234
+            </p>
+        </div>
+    </div>
+
+    <!-- Mobile Header -->
+    <div class="flex md:hidden justify-between items-center px-4 py-4 mb-6">
+        <Link href="/" class="flex gap-2 items-center">
+            <img src="/toscana/logo.png" alt="logo" class="w-16 h-10" />
+        </Link>
+        <Link href="/" class="text-sm text-gray-600 hover:underline">
+            Zurück zur Startseite
+        </Link>
+    </div>
+
+    <!-- Content -->
+    <div class="max-w-4xl mx-auto px-6 md:px-8">
+        <!-- Page Title -->
+        <div class="mb-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Datenschutzerklärung</h1>
+            <div class="w-24 h-1 bg-orange-500 mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Main Content Card -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+            
+            <!-- Section 1: Verantwortlicher -->
+            <div class="p-8 border-b border-gray-100">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-sm font-bold">1</span>
+                    Verantwortlicher
+                </h2>
+                <div class="ml-10 text-gray-600 leading-relaxed">
+                    <p class="mb-3">Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="font-semibold text-gray-800">Aflah Zaag</p>
+                        <p>Hirschgasse 7</p>
+                        <p class="mt-2">
+                            <span class="font-medium text-gray-700">E-Mail:</span> 
+                            <a href="mailto:ristorante.toscana.memmingen@gmail.com" class="text-orange-600 hover:underline">ristorante.toscana.memmingen@gmail.com</a>
+                        </p>
+                        <p>
+                            <span class="font-medium text-gray-700">Telefon:</span> 
+                            <a href="tel:083319744234" class="text-orange-600 hover:underline">08331 9744234</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Hosting und Zugriffsdaten -->
+            <div class="p-8 bg-gray-50 border-b border-gray-100">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-sm font-bold">2</span>
+                    Hosting und Zugriffsdaten
+                </h2>
+                <div class="ml-10 text-gray-600 leading-relaxed space-y-4">
+                    <p>
+                        Diese Website wird bei <strong class="text-gray-800">Strato AG</strong> gehostet (Strato AG, Pascalstraße 10, 10587 Berlin). 
+                        Beim Besuch der Website erhebt Strato automatisch sogenannte Server-Log-Dateien, die folgende Informationen enthalten:
+                    </p>
+                    <ul class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+                            Datum und Uhrzeit des Zugriffs
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+                            IP-Adresse
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+                            Browsertyp und Version
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+                            Betriebssystem
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+                            Referrer-URL (die zuvor besuchte Seite)
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+                            Hostname des zugreifenden Geräts
+                        </li>
+                    </ul>
+                    <p>
+                        Diese Daten dienen ausschließlich der Sicherstellung eines störungsfreien Betriebs der Website und werden automatisch gelöscht.
+                    </p>
+                    <p>
+                        Die Verarbeitung erfolgt auf Grundlage von <strong class="text-gray-800">Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse am sicheren Betrieb der Website).
+                    </p>
+                    <p>
+                        Weitere Informationen finden Sie in der Datenschutzerklärung von Strato:
+                        <a href="https://www.strato.de/datenschutz" target="_blank" rel="noopener noreferrer" class="text-orange-600 hover:underline">
+                            https://www.strato.de/datenschutz
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 3: Speicherung personenbezogener Daten -->
+            <div class="p-8 border-b border-gray-100">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-sm font-bold">3</span>
+                    Speicherung personenbezogener Daten
+                </h2>
+                <div class="ml-10 text-gray-600 leading-relaxed">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                        <p class="flex items-start gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <span>
+                                Wir speichern <strong class="text-green-800">keine personenbezogenen Daten</strong> auf dieser Website.
+                                Es gibt keine Kontaktformulare, keine Registrierungsmöglichkeiten und keine Kommentarfunktion.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Cookies -->
+            <div class="p-8 bg-gray-50 border-b border-gray-100">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-sm font-bold">4</span>
+                    Cookies
+                </h2>
+                <div class="ml-10 text-gray-600 leading-relaxed">
+                    <p>
+                        Unsere Website verwendet ausschließlich <strong class="text-gray-800">technisch notwendige Cookies</strong>, 
+                        um die Funktionalität der Website zu gewährleisten. Diese Cookies speichern keine personenbezogenen Daten 
+                        und erfordern keine Zustimmung.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 5: Rechte der betroffenen Person -->
+            <div class="p-8 border-b border-gray-100">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-sm font-bold">5</span>
+                    Rechte der betroffenen Person
+                </h2>
+                <div class="ml-10 text-gray-600 leading-relaxed space-y-4">
+                    <p>
+                        Auch wenn auf unserer Website keine personenbezogenen Daten direkt gespeichert werden, werden beim Hosting 
+                        durch Strato (z. B. über Server-Log-Dateien) personenbezogene Daten wie IP-Adressen verarbeitet. 
+                        Betroffene Personen haben diesbezüglich folgende Rechte:
+                    </p>
+                    <div class="grid gap-3">
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 flex items-start gap-3">
+                            <span class="w-6 h-6 bg-orange-100 rounded flex items-center justify-center text-orange-600 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-gray-800">Auskunft</strong> über die von Strato verarbeiteten Daten (Art. 15 DSGVO)
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 flex items-start gap-3">
+                            <span class="w-6 h-6 bg-orange-100 rounded flex items-center justify-center text-orange-600 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-gray-800">Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 flex items-start gap-3">
+                            <span class="w-6 h-6 bg-orange-100 rounded flex items-center justify-center text-orange-600 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-gray-800">Löschung</strong> der Daten, soweit dies rechtlich zulässig ist (Art. 17 DSGVO)
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 flex items-start gap-3">
+                            <span class="w-6 h-6 bg-orange-100 rounded flex items-center justify-center text-orange-600 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-gray-800">Einschränkung</strong> der Verarbeitung unter bestimmten Voraussetzungen (Art. 18 DSGVO)
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 flex items-start gap-3">
+                            <span class="w-6 h-6 bg-orange-100 rounded flex items-center justify-center text-orange-600 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-gray-800">Beschwerde</strong> bei einer Datenschutzaufsichtsbehörde (Art. 77 DSGVO)
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4">
+                        Weitere Informationen zur Verarbeitung durch Strato finden Sie in deren Datenschutzerklärung:
+                        <a href="https://www.strato.de/datenschutz" target="_blank" rel="noopener noreferrer" class="text-orange-600 hover:underline">
+                            https://www.strato.de/datenschutz
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 6: Aktualität -->
+            <div class="p-8 bg-gray-50">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-sm font-bold">6</span>
+                    Aktualität und Änderungen dieser Datenschutzerklärung
+                </h2>
+                <div class="ml-10 text-gray-600 leading-relaxed">
+                    <p>
+                        Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <strong class="text-gray-800">November 2025</strong>.
+                    </p>
+                    <p class="mt-3">
+                        Sollte sich an der Website oder der zugrunde liegenden Datenverarbeitung etwas ändern, 
+                        wird die Datenschutzerklärung entsprechend aktualisiert.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Home Link -->
+        <div class="mt-10 text-center">
+            <Link 
+                href="/" 
+                class="inline-flex items-center gap-2 text-gray-600 hover:text-orange-600 transition-colors"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+                Zurück zur Startseite
+            </Link>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white rounded-lg shadow mt-16">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-gray-500 sm:text-center">© {{ year }}
+                <a href="/" class="hover:underline">Toscana Memmingen</a>.
+            </span>
+            <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
+                <li>
+                    <Link href="/datenschutz" class="hover:underline me-4 md:me-6">Datenschutz</Link>
+                </li>
+                <li>
+                    <Link href="/impressum" class="hover:underline me-4 md:me-6">Impressum</Link>
+                </li>
+                <li>
+                    <Link href="/" class="hover:underline">Kontakt aufnehmen</Link>
+                </li>
+            </ul>
+        </div>
+    </footer>
 </template>
+
+<style>
+@media only screen and (min-width: 600px) {
+    html {
+        padding: 5rem;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+</style>
