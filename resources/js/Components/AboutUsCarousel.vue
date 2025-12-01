@@ -35,7 +35,7 @@ for (let i = 1; i <= 50; i++) {
             <CarouselItem v-for="image in images" :key="image.src">
                 <div class="p-1">
                     <Card class="border-0 bg-transparent shadow-none overflow-hidden rounded-lg">
-                        <CardContent class="flex aspect-[4/3] min-h-[450px] lg:min-h-[600px] items-center justify-center p-0 relative">
+                        <CardContent class="flex aspect-[4/3] min-h-[280px] sm:min-h-[350px] md:min-h-[450px] lg:min-h-[600px] items-center justify-center p-0 relative">
                             <!-- Image -->
                             <img 
                                 :src="image.src" 
@@ -52,10 +52,10 @@ for (let i = 1; i <= 50; i++) {
         
         <!-- Elegant navigation arrows -->
         <CarouselPrevious 
-            class="left-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 opacity-0 group-hover:opacity-100"
+            class="left-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
         />
         <CarouselNext 
-            class="right-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 opacity-0 group-hover:opacity-100"
+            class="right-4 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100"
         />
     </Carousel>
 </template>

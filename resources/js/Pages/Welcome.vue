@@ -5,6 +5,7 @@ import Button from "@/Components/ui/button/Button.vue";
 import { Head, Link } from "@inertiajs/vue3";
 import AboutUsCarousel from "@/Components/AboutUsCarousel.vue";
 import { ref, onMounted, onUnmounted } from "vue";
+import { Soup, Pizza, CakeSlice } from "lucide-vue-next";
 
 defineProps<{
     canAccessAdmin: string;
@@ -21,13 +22,29 @@ let observer: IntersectionObserver | null = null;
 // Parallax effect for hero
 const heroOffset = ref(0);
 const isNavScrolled = ref(false);
+const isMobile = ref(false);
 
 const handleScroll = () => {
-    heroOffset.value = window.scrollY * 0.4;
+    // Only apply parallax on desktop for better mobile performance
+    if (!isMobile.value) {
+        heroOffset.value = window.scrollY * 0.4;
+    }
     isNavScrolled.value = window.scrollY > 50;
 };
 
+const checkMobile = () => {
+    isMobile.value = window.innerWidth < 768;
+    // Reset parallax offset on mobile
+    if (isMobile.value) {
+        heroOffset.value = 0;
+    }
+};
+
 onMounted(() => {
+    // Check for mobile device
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
     // Intersection Observer for scroll reveal
     observer = new IntersectionObserver(
         (entries) => {
@@ -53,11 +70,12 @@ onMounted(() => {
 onUnmounted(() => {
     observer?.disconnect();
     window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("resize", checkMobile);
 });
 </script>
 
 <template>
-    <Head title="Ristorante Toscana | Authentische Italienische Kuche in Memmingen" />
+    <Head title="Ristorante Toscana | Authentische Italienische Küche in Memmingen" />
     
     <div class="min-h-screen bg-ivory">
         <!-- Mobile Navigation -->
@@ -97,11 +115,11 @@ onUnmounted(() => {
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
             
             <!-- Mobile Logo -->
-            <div class="absolute top-6 left-1/2 -translate-x-1/2 md:hidden z-10">
+            <div class="absolute top-20 left-1/2 -translate-x-1/2 md:hidden z-10">
                 <img 
                     src="/toscana/logo.png" 
                     alt="Toscana Logo" 
-                    class="w-20 h-14 opacity-90 drop-shadow-lg" 
+                    class="w-16 h-12 sm:w-20 sm:h-14 opacity-90 drop-shadow-lg" 
                 />
             </div>
 
@@ -111,7 +129,7 @@ onUnmounted(() => {
                     <!-- Decorative Element -->
                     <div class="hero-text-reveal flex items-center gap-4 mb-8">
                         <span class="block w-16 h-px bg-gradient-to-r from-gold-500 to-gold-300"></span>
-                        <span class="text-gold-400 text-xs tracking-[0.3em] uppercase font-light">Authentische Italienische Kuche</span>
+                        <span class="text-gold-400 text-xs tracking-[0.3em] uppercase font-light">Authentische Italienische Küche</span>
                     </div>
                     
                     <!-- Main Title with Staggered Animation -->
@@ -136,7 +154,7 @@ onUnmounted(() => {
                     <!-- Elegant Tagline -->
                     <div class="hero-text-reveal delay-4 max-w-xl mb-12">
                         <p class="text-lg md:text-xl text-stone-400 font-light leading-relaxed tracking-wide">
-                            Italienisches Flair im Herzen von Memmingen. Erleben Sie authentische Kuche, 
+                            Italienisches Flair im Herzen von Memmingen. Erleben Sie authentische Küche, 
                             frisch zubereitet mit Liebe und Leidenschaft.
                         </p>
                     </div>
@@ -145,7 +163,7 @@ onUnmounted(() => {
                     <div class="hero-text-reveal delay-5 flex flex-col sm:flex-row gap-4">
                         <a href="menu.pdf" class="group">
                             <Button 
-                                class="relative overflow-hidden bg-gold-500 hover:bg-gold-400 text-warmblack border-0 px-10 py-7 text-sm tracking-[0.15em] uppercase font-medium transition-all duration-500 shadow-gold hover:shadow-gold-lg"
+                                class="relative overflow-hidden bg-gold-500 hover:bg-gold-400 text-warmblack border-0 px-6 sm:px-10 py-4 sm:py-7 text-sm tracking-[0.15em] uppercase font-medium transition-all duration-500 shadow-gold hover:shadow-gold-lg"
                             >
                                 <span class="relative z-10 flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-3 transition-transform duration-300 group-hover:-translate-y-0.5">
@@ -158,7 +176,7 @@ onUnmounted(() => {
                         <a href="tel:+4983319744234" class="group">
                             <Button 
                                 variant="outline" 
-                                class="border-stone-500/50 text-white hover:border-gold-500/50 hover:text-gold-400 bg-transparent hover:bg-gold-500/5 px-10 py-7 text-sm tracking-[0.15em] uppercase font-light transition-all duration-500"
+                                class="border-stone-500/50 text-white hover:border-gold-500/50 hover:text-gold-400 bg-transparent hover:bg-gold-500/5 px-6 sm:px-10 py-4 sm:py-7 text-sm tracking-[0.15em] uppercase font-light transition-all duration-500"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-3 transition-transform duration-300 group-hover:rotate-12">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
@@ -212,19 +230,15 @@ onUnmounted(() => {
                 <div class="reveal stagger-2 mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="group p-8 bg-white rounded-lg shadow-sm hover:shadow-elegant transition-all duration-500 card-lift">
                         <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold-50 flex items-center justify-center group-hover:bg-gold-100 transition-colors duration-300">
-                            <svg class="w-8 h-8 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m18-4.5v2.25c0 1.035-.84 1.875-1.875 1.875H4.875C3.839 16.125 3 15.285 3 14.25V12m18 0v-2.513c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-3.024-.166" />
-                            </svg>
+                            <Soup class="w-8 h-8 text-gold-600" :stroke-width="1.5" />
                         </div>
                         <h3 class="text-xl font-light text-charcoal-800 mb-3">Pasta Fresca</h3>
-                        <p class="text-charcoal-500 text-sm leading-relaxed">Taglich frisch zubereitete Pasta nach traditionellen Rezepten</p>
+                        <p class="text-charcoal-500 text-sm leading-relaxed">Täglich frisch zubereitete Pasta nach traditionellen Rezepten</p>
                     </div>
                     
                     <div class="group p-8 bg-white rounded-lg shadow-sm hover:shadow-elegant transition-all duration-500 card-lift">
                         <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold-50 flex items-center justify-center group-hover:bg-gold-100 transition-colors duration-300">
-                            <svg class="w-8 h-8 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5h.375c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125H21M4.5 10.5H18V15H4.5v-4.5ZM3.75 18h15A2.25 2.25 0 0 0 21 15.75v-6a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 1.5 9.75v6A2.25 2.25 0 0 0 3.75 18Z" />
-                            </svg>
+                            <Pizza class="w-8 h-8 text-gold-600" :stroke-width="1.5" />
                         </div>
                         <h3 class="text-xl font-light text-charcoal-800 mb-3">Pinsa Romana</h3>
                         <p class="text-charcoal-500 text-sm leading-relaxed">Die leichte Alternative zur Pizza - knusprig und unwiderstehlich</p>
@@ -232,12 +246,10 @@ onUnmounted(() => {
                     
                     <div class="group p-8 bg-white rounded-lg shadow-sm hover:shadow-elegant transition-all duration-500 card-lift">
                         <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold-50 flex items-center justify-center group-hover:bg-gold-100 transition-colors duration-300">
-                            <svg class="w-8 h-8 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                            </svg>
+                            <CakeSlice class="w-8 h-8 text-gold-600" :stroke-width="1.5" />
                         </div>
                         <h3 class="text-xl font-light text-charcoal-800 mb-3">Dolci</h3>
-                        <p class="text-charcoal-500 text-sm leading-relaxed">Hausgemachte Desserts fur einen sussen Abschluss</p>
+                        <p class="text-charcoal-500 text-sm leading-relaxed">Hausgemachte Desserts für einen süßen Abschluss</p>
                     </div>
                 </div>
                 
@@ -247,7 +259,7 @@ onUnmounted(() => {
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-3 transition-transform duration-300 group-hover:translate-y-0.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
                             </svg>
-                            Vollstandige Speisekarte
+                            Vollständige Speisekarte
                         </Button>
                     </a>
                 </div>
@@ -267,19 +279,19 @@ onUnmounted(() => {
                         <div class="reveal">
                             <span class="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">Willkommen</span>
                             <h2 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight">
-                                Uber Uns
+                                Über Uns
                             </h2>
                             <div class="mt-4 w-16 h-px bg-gold-500/50"></div>
                         </div>
                         
                         <div class="reveal stagger-1 mt-10 space-y-6 text-stone-300 font-light leading-relaxed text-lg">
                             <p>
-                                Im Ristorante Toscana offnet sich die Tur und sofort fuhlt man sich, als ware man in Italien.
+                                Im Ristorante Toscana öffnet sich die Tür und sofort fühlt man sich, als wäre man in Italien.
                                 Ein Ort, an dem Menschen zusammenkommen - Familien, Freunde, Paare - um das Leben und
-                                gutes Essen zu geniessen.
+                                gutes Essen zu genießen.
                             </p>
                             <p>
-                                Die lebhafte Stimmung, das Lachen der Gaste und der kostliche Duft frisch zubereiteter Gerichte 
+                                Die lebhafte Stimmung, das Lachen der Gäste und der köstliche Duft frisch zubereiteter Gerichte 
                                 schaffen eine unverwechselbare italienische Lebensfreude.
                             </p>
                         </div>
@@ -295,7 +307,7 @@ onUnmounted(() => {
                                 <div>
                                     <h3 class="text-xl font-light text-gold-400 mb-2">Unsere Spezialitat: Die Pinsa</h3>
                                     <p class="text-stone-400 font-light leading-relaxed">
-                                        Eine ganz besondere Spezialitat des Hauses ist die Pinsa, der geschmackvolle Vorlaufer der Pizza.
+                                        Eine ganz besondere Spezialität des Hauses ist die Pinsa, der geschmackvolle Vorläufer der Pizza.
                                         Der spezielle Brotteig ist eine harmonische Mischung aus Knusprigkeit und fluffiger Leichtigkeit.
                                     </p>
                                 </div>
@@ -327,39 +339,39 @@ onUnmounted(() => {
                         <div class="reveal">
                             <span class="text-gold-600 text-xs tracking-[0.3em] uppercase font-medium">Besuchen Sie uns</span>
                             <h2 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-extralight text-charcoal-900 tracking-tight">
-                                Offnungszeiten
+                                Öffnungszeiten
                             </h2>
                             <div class="mt-4 w-16 h-px bg-gold-500/50"></div>
                         </div>
                         
                         <div class="reveal stagger-1 mt-12 space-y-0">
-                            <div class="flex justify-between items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300 gap-1 sm:gap-0">
                                 <span class="text-charcoal-800 font-light">Montag</span>
-                                <span class="text-charcoal-600 font-light">17:30 - 23:00</span>
+                                <span class="text-charcoal-600 font-light text-sm sm:text-base">17:30 - 23:00</span>
                             </div>
-                            <div class="flex justify-between items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300 gap-1 sm:gap-0">
                                 <span class="text-charcoal-800 font-light">Dienstag</span>
-                                <span class="text-charcoal-600 font-light">11:30 - 14:00, 17:30 - 23:00</span>
+                                <span class="text-charcoal-600 font-light text-sm sm:text-base">11:30 - 14:00, 17:30 - 23:00</span>
                             </div>
-                            <div class="flex justify-between items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300 gap-1 sm:gap-0">
                                 <span class="text-charcoal-800 font-light">Mittwoch</span>
-                                <span class="text-charcoal-600 font-light">11:30 - 14:00, 17:30 - 23:00</span>
+                                <span class="text-charcoal-600 font-light text-sm sm:text-base">11:30 - 14:00, 17:30 - 23:00</span>
                             </div>
-                            <div class="flex justify-between items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300 gap-1 sm:gap-0">
                                 <span class="text-charcoal-800 font-light">Donnerstag</span>
-                                <span class="text-charcoal-600 font-light">11:30 - 14:00, 17:30 - 23:00</span>
+                                <span class="text-charcoal-600 font-light text-sm sm:text-base">11:30 - 14:00, 17:30 - 23:00</span>
                             </div>
-                            <div class="flex justify-between items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300 gap-1 sm:gap-0">
                                 <span class="text-charcoal-800 font-light">Freitag</span>
-                                <span class="text-charcoal-600 font-light">17:30 - 23:00</span>
+                                <span class="text-charcoal-600 font-light text-sm sm:text-base">17:30 - 23:00</span>
                             </div>
-                            <div class="flex justify-between items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300 gap-1 sm:gap-0">
                                 <span class="text-charcoal-800 font-light">Samstag</span>
-                                <span class="text-charcoal-600 font-light">11:30 - 14:00, 17:30 - 23:00</span>
+                                <span class="text-charcoal-600 font-light text-sm sm:text-base">11:30 - 14:00, 17:30 - 23:00</span>
                             </div>
-                            <div class="flex justify-between items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-5 border-b border-charcoal-200/50 group hover:bg-white/50 px-4 -mx-4 transition-colors duration-300 gap-1 sm:gap-0">
                                 <span class="text-charcoal-800 font-light">Sonntag</span>
-                                <span class="text-charcoal-600 font-light">11:30 - 14:00, 17:30 - 23:00</span>
+                                <span class="text-charcoal-600 font-light text-sm sm:text-base">11:30 - 14:00, 17:30 - 23:00</span>
                             </div>
                         </div>
                     </div>
@@ -382,7 +394,7 @@ onUnmounted(() => {
                                 
                                 <h3 class="text-2xl font-extralight text-white mb-4 tracking-wide">Reservierung</h3>
                                 <p class="text-stone-400 font-light mb-8 leading-relaxed">
-                                    Fur Reservierungen rufen Sie uns gerne an oder besuchen Sie uns direkt.
+                                    Für Reservierungen rufen Sie uns gerne an oder besuchen Sie uns direkt.
                                 </p>
                                 
                                 <a href="tel:+4983319744234" class="group inline-block">
@@ -415,7 +427,7 @@ onUnmounted(() => {
                             <div class="rounded-lg overflow-hidden shadow-elegant border border-stone-200">
                                 <iframe
                                     src="https://www.openstreetmap.org/export/embed.html?bbox=10.181861221790315%2C47.981805387916175%2C10.185557305812837%2C47.98331887193618&amp;layer=mapnik"
-                                    class="w-full h-[450px]"
+                                    class="w-full h-[300px] sm:h-[350px] md:h-[450px]"
                                     title="Standort Ristorante Toscana"
                                 ></iframe>
                             </div>
@@ -427,7 +439,7 @@ onUnmounted(() => {
                                 rel="noopener"
                                 class="inline-flex items-center gap-2 text-gold-600 hover:text-gold-700 text-sm font-light tracking-wide transition-colors group"
                             >
-                                Grossere Karte anzeigen
+                                Größere Karte anzeigen
                                 <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
                                 </svg>
@@ -452,7 +464,7 @@ onUnmounted(() => {
                             </p>
                             <p>
                                 Unsere Lage verbindet italienisches Flair mit dem Charme der Altstadt 
-                                und ladt zum Geniessen und Verweilen ein.
+                                und lädt zum Genießen und Verweilen ein.
                             </p>
                         </div>
 
@@ -500,14 +512,14 @@ onUnmounted(() => {
                         {{ year }} Ristorante Toscana. Alle Rechte vorbehalten.
                     </span>
                     
-                    <nav class="flex items-center gap-8">
-                        <a href="datenschutz" class="text-stone-500 hover:text-gold-400 text-sm font-light transition-colors duration-300">
+                    <nav class="flex flex-wrap items-center justify-center md:justify-start gap-4 md:gap-8">
+                        <a href="datenschutz" class="py-2 text-stone-500 hover:text-gold-400 text-sm font-light transition-colors duration-300">
                             Datenschutz
                         </a>
-                        <a href="impressum" class="text-stone-500 hover:text-gold-400 text-sm font-light transition-colors duration-300">
+                        <a href="impressum" class="py-2 text-stone-500 hover:text-gold-400 text-sm font-light transition-colors duration-300">
                             Impressum
                         </a>
-                        <a href="tel:+4983319744234" class="text-stone-500 hover:text-gold-400 text-sm font-light transition-colors duration-300">
+                        <a href="tel:+4983319744234" class="py-2 text-stone-500 hover:text-gold-400 text-sm font-light transition-colors duration-300">
                             Kontakt
                         </a>
                     </nav>

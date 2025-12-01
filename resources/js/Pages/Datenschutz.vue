@@ -9,6 +9,7 @@ defineProps<{
 <template>
     <Head title="Datenschutz" />
     
+    <div class="min-h-screen py-4 md:py-20 px-0 md:px-20">
     <!-- Header -->
     <div class="hidden md:flex justify-between mb-10">
         <Link href="/" class="flex gap-2 py-5 justify-center items-center hover:opacity-80 transition-opacity">
@@ -305,16 +306,9 @@ defineProps<{
             </ul>
         </div>
     </footer>
+    </div>
 </template>
 
-<style>
-@media only screen and (min-width: 600px) {
-    html {
-        padding: 5rem;
-    }
-}
-
-html {
-    scroll-behavior: smooth;
-}
+<style scoped>
+/* Smooth scrolling handled by global CSS */
 </style>

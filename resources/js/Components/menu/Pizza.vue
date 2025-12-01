@@ -44,7 +44,7 @@ let pizzas = [
 </script>
 
 <template>
-    <h1 class="px-24 mt-5 text-xl md:text-2xl text-slate-900 mb-2.5 flex gap-2">
+    <h1 class="px-4 sm:px-10 md:px-24 mt-5 text-xl md:text-2xl text-slate-900 mb-2.5 flex gap-2">
         <svg
             class="size-6"
             xmlns="http://www.w3.org/2000/svg"

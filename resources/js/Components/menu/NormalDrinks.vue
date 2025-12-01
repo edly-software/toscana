@@ -41,7 +41,7 @@ let drinks = [
 
 <template>
     <h1
-        class="px-24 mt-5 text-xl md:text-2xl text-slate-900 mb-2.5 flex gap-2 w-full"
+        class="px-4 sm:px-10 md:px-24 mt-5 text-xl md:text-2xl text-slate-900 mb-2.5 flex gap-2 w-full"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"

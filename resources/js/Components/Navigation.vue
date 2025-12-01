@@ -49,7 +49,7 @@ defineProps<{
                 class="relative text-sm font-light tracking-[0.1em] uppercase transition-all duration-500 group"
                 :class="isScrolled ? 'text-stone-300 hover:text-gold-400' : 'text-stone-300 hover:text-gold-400'"
             >
-                <span class="relative z-10">Uber Uns</span>
+                <span class="relative z-10">Über Uns</span>
                 <span class="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-gold-400 to-gold-300 group-hover:w-full transition-all duration-500"></span>
             </a>
 
@@ -58,7 +58,7 @@ defineProps<{
                 class="relative text-sm font-light tracking-[0.1em] uppercase transition-all duration-500 group"
                 :class="isScrolled ? 'text-stone-300 hover:text-gold-400' : 'text-stone-300 hover:text-gold-400'"
             >
-                <span class="relative z-10">Offnungszeiten</span>
+                <span class="relative z-10">Öffnungszeiten</span>
                 <span class="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-gold-400 to-gold-300 group-hover:w-full transition-all duration-500"></span>
             </a>
 
