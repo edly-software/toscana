@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.2",
         "codeat3/blade-fluentui-system-icons": "^1.33",
-        "filament/filament": "^3.2",
+        "filament/filament": "^4.1",
         "inertiajs/inertia-laravel": "^1.0",
         "laravel/breeze": "^2.2",
         "laravel/framework": "^11.25",
